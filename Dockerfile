@@ -1,4 +1,4 @@
-FROM rust:1.34.0-slim
+FROM rust:1.42.0-slim
 
 RUN apt-get update
 RUN apt-get install -y clang cmake
@@ -16,7 +16,4 @@ RUN cargo install --path .
 # Electrum RPC
 EXPOSE 50001
 
-# Prometheus monitoring
-EXPOSE 4224
-
-STOPSIGNAL SIGINT
+ENTRYPOINT [ "electrs", "-vvvv", "--timestamp", "--db-dir /home/user/db" ]
