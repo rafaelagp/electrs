@@ -16,4 +16,4 @@ RUN cargo install --path .
 # Electrum RPC
 EXPOSE 50001
 
-ENTRYPOINT [ "electrs", "-vvvv", "--timestamp", "--db-dir /home/user/db" ]
+ENTRYPOINT [ "electrs", "-vvvv", "--timestamp", "--db-dir", "/home/user/db" ]
